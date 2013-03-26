@@ -57,12 +57,8 @@ TITLE: app.js (For Project 4)
 	//  Javascript function that initiates Google Maps to the Home page.  
 	$('#home').bind('pageAnimationEnd', function(event, info) {
 		if (info.direction == 'in') {
-			$("#map").show();
-			
-			google.maps.event.trigger(map.map, 'resize');
-			
-			map.map.setZoom(map.mapOptions.zoom);
-			map.map.fitBounds(map.bounds);
+		
+			map.home(true);
 					
 		}
 		return false;

@@ -70,12 +70,17 @@ TITLE: MyMap.js
 		}
 		
 		//  Javascript function t.home
-		t.home = function() {
+		t.home = function(override) {
 			google.maps.event.trigger(t.map, 'resize');
-			t.map.setZoom(t.mapOptions.zoom);
-			t.map.fitBounds(t.bounds);
+			t.map.setZoom(t.mapOptions.zoom); 
 			
-			$('a[href="#home"]').click();	
+			if(t.markers.length > 0) {
+				t.map.fitBounds(t.bounds);
+			};
+			
+			if(!override) {
+				$('a[href="#home"]').click();
+			}
 		}
 		
 		//  Javascript function t.newMarker sets this newMarker to the map. 
